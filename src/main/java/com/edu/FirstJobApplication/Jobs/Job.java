@@ -1,13 +1,22 @@
 package com.edu.FirstJobApplication.Jobs;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "job_table")
 public class Job {
 
+    @Id
+//    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long jobId;
     private String title;
     private String description;
     private String minSalary;
     private String maxSalary;
     private String location;
+
+    public Job() {
+    }
 
     public Job(long jobId, String title, String description, String minSalary, String maxSalary, String location) {
         this.jobId = jobId;

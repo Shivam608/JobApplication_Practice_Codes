@@ -18,10 +18,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/Job_Application")
-public class jobController {
-    private jobService jobService;
+public class JobController {
+    private JobService jobService;
 
-    public jobController(jobService jobService) {
+    public JobController(JobService jobService) {
         this.jobService = jobService;
     }
 
@@ -40,12 +40,12 @@ public class jobController {
 
     // Get Job details by Job ID
     @GetMapping("/getJobList/{id}")
-    public ResponseEntity<Job> getJobByID(@PathVariable long id) {
+    public ResponseEntity<?> getJobByID(@PathVariable long id) {
         Job job = jobService.getJobByID(id);
         if (job != null) {
             return new ResponseEntity<>(job, HttpStatus.OK);
         }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("JOb ID:" + id + " is not Valid", HttpStatus.NOT_FOUND);
     }
 
     // Delete a Specific Job by ID
@@ -77,5 +77,4 @@ public class jobController {
  * POST  ----    /Job_Application/addJobs                ---> Add a New Job (Request Body Should Contain the Job Details)
  * Delete----    /Job_Application/deleteJob/{id}         ---> Delete a Job by ID
  * PUT   ----    /Job_Application/updateJob/{id}         ---> Update Details of Existing Job by ID (Req Body should have Same format with Updated Job Details)
- *
  */
