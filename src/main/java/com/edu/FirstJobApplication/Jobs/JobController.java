@@ -9,6 +9,7 @@ package com.edu.FirstJobApplication.Jobs;
  */
 
 // Spring Imports
+import com.edu.FirstJobApplication.Companies.Company;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,6 +36,8 @@ public class JobController {
     @PostMapping("/addJobs")
     public ResponseEntity<String> createJob(@RequestBody Job job) {
         jobService.createJob(job);
+//        The below line allows to create a company while creating a new Job
+//        Company company = job.getCompany();
         return new ResponseEntity<>("Job Created Successfully with JobID: " + job.getJobId(), HttpStatus.CREATED);
     }
 
@@ -45,7 +48,7 @@ public class JobController {
         if (job != null) {
             return new ResponseEntity<>(job, HttpStatus.OK);
         }
-        return new ResponseEntity<>("JOb ID:" + id + " is not Valid", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("Job ID:" + id + " is not Valid", HttpStatus.NOT_FOUND);
     }
 
     // Delete a Specific Job by ID

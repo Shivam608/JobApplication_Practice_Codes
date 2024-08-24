@@ -79,15 +79,16 @@ public class JobServiceImpl implements JobService {
 //        }
 //        System.out.println("No Jobs Found with ID:" + id);
 //        return false;
-        try {
-            jobRepository.deleteById(id);
-            return true;
-        } catch (Exception e) {
-            System.out.println("Unable to find Job with Specified ID." + e);
-            return false;
-        }
-
-
+        if (jobRepository.existsById(id)) {
+            try {
+                jobRepository.deleteById(id);
+                return true;
+            } catch (Exception e) {
+                System.out.println("Unable to find Job with Specified ID." + e);
+            }
+        } else
+            System.out.println("Unable to find Job with Specified ID: " + id) ;
+        return false;
     }
 
     @Override

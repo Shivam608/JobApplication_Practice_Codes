@@ -1,6 +1,7 @@
 package com.edu.FirstJobApplication.Companies;
 
 import com.edu.FirstJobApplication.Jobs.Job;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -10,16 +11,17 @@ import java.util.List;
 public class Company {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+//    @GeneratedValue(strategy = GenerationType.UUID)
     private long companyId;
     private String name;
     private String description;
 
-    @OneToMany
+    @JsonIgnore
+    @OneToMany(mappedBy = "company")
     private List<Job> jobList;
 
-    //@OneToMany
-    //private List<Reviews> reviews;
+    // @OneToMany
+    // private List<Reviews> reviews;
 
     // Default Constructor for JPA
     public Company() {
