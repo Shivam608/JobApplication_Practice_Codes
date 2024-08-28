@@ -1,6 +1,7 @@
 package com.edu.FirstJobApplication.Companies;
 
 import com.edu.FirstJobApplication.Jobs.Job;
+import com.edu.FirstJobApplication.Reviews.Reviews;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -20,8 +21,9 @@ public class Company {
     @OneToMany(mappedBy = "company")
     private List<Job> jobList;
 
-    // @OneToMany
-    // private List<Reviews> reviews;
+    @JsonIgnore
+    @OneToMany(mappedBy = "company")
+     private List<Reviews> reviews;
 
     // Default Constructor for JPA
     public Company() {

@@ -1,7 +1,11 @@
 package com.edu.FirstJobApplication.Jobs;
 
 import com.edu.FirstJobApplication.Companies.Company;
+import com.edu.FirstJobApplication.Reviews.Reviews;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "job_table")
@@ -9,6 +13,10 @@ public class Job {
 
     @ManyToOne
     private Company company;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "job")
+    private List<Reviews> reviews;
 
     @Id
 //    @GeneratedValue (strategy = GenerationType.IDENTITY)
