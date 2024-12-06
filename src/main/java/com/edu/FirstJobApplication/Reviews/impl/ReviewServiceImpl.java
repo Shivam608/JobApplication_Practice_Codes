@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class ReviewServiceImpl implements ReviewService {
 
-    private ReviewsRepository reviewsRepository;
+    private final ReviewsRepository reviewsRepository;
 
     public ReviewServiceImpl(ReviewsRepository reviewsRepository) {
         this.reviewsRepository = reviewsRepository;
@@ -18,7 +18,6 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public List<Reviews> getAllReviews(long companyId) {
-        List<Reviews> reviews = reviewsRepository.findByCompany_companyId(companyId);
-        return reviews;
+        return reviewsRepository.findByCompany_companyId(companyId);
     }
 }

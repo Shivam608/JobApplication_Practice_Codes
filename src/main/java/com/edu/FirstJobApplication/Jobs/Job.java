@@ -1,8 +1,8 @@
 package com.edu.FirstJobApplication.Jobs;
 
 import com.edu.FirstJobApplication.Companies.Company;
-import com.edu.FirstJobApplication.Reviews.Reviews;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+//import com.edu.FirstJobApplication.Reviews.Reviews;
+//import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
