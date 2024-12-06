@@ -29,11 +29,12 @@ public class Company {
     public Company() {
     }
 
-    public Company(long companyId, String name, String description, List<Job> jobList) {
+    public Company(long companyId, String name, String description, List<Job> jobList, List<Reviews> reviews) {
         this.companyId = companyId;
         this.name = name;
         this.description = description;
         this.jobList = jobList;
+        this.reviews = reviews;
     }
 
     public long getCompanyId() {
@@ -66,5 +67,13 @@ public class Company {
 
     public void setJobList(List<Job> jobList) {
         this.jobList = jobList;
+    }
+
+    public List<Reviews> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Reviews> reviews) {
+        this.reviews = reviews;
     }
 }

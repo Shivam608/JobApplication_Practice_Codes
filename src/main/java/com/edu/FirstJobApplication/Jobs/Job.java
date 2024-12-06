@@ -14,9 +14,9 @@ public class Job {
     @ManyToOne
     private Company company;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "job")
-    private List<Reviews> reviews;
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "job")
+//    private List<Reviews> reviews;
 
     @Id
 //    @GeneratedValue (strategy = GenerationType.IDENTITY)
